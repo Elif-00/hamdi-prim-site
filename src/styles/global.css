@@ -21,10 +21,10 @@ nav.scrolled .nbr{color:var(--gd);}
 .ntag{font-size:.65rem;font-weight:600;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.08em;transition:color .4s;}
 nav.scrolled .ntag{color:var(--g);}
 .nlinks{list-style:none;display:flex;align-items:center;gap:28px;}
-.nlinks a{text-decoration:none;color:rgba(255,255,255,.9);font-weight:700;font-size:.88rem;transition:color .25s;}
+.nlinks a{text-decoration:none;color:rgba(255,255,255,.9);font-weight:700;font-size:1rem;transition:color .25s;}
 nav.scrolled .nlinks a{color:var(--dk);}
 .nlinks a:hover{color:var(--r);}
-.ncta{background:var(--r)!important;color:var(--wh)!important;padding:10px 22px;border-radius:50px;font-weight:800!important;}
+.ncta{background:var(--r)!important;color:var(--wh)!important;padding:10px 22px;border-radius:50px;font-weight:800!important;font-size:1rem!important;}
 .ncta:hover{background:var(--rk)!important;}
 .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
 .burger span{display:block;width:24px;height:2.5px;background:var(--dk);border-radius:2px;}

@@ -132,7 +132,7 @@ section{padding:80px 48px;}
 .pc:hover .pi{transform:scale(1.07);}
 .ptop{position:absolute;top:12px;left:12px;background:var(--gd);color:white;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:50px;}
 .pb{padding:18px 16px 20px;}
-.pn{font-size:.95rem;font-weight:800;color:var(--dk);margin-bottom:4px;}
+.pn{font-size:1rem;font-weight:800;color:var(--dk);margin-bottom:6px;}
 .pd{font-size:.92rem;color:#374151;line-height:1.6;font-weight:500;}
 .pf{display:flex;justify-content:space-between;align-items:center;margin-top:10px;}
 .pst{color:var(--y);font-size:.72rem;letter-spacing:1px;}

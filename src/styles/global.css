@@ -50,8 +50,8 @@ nav.scrolled .burger span{background:var(--dk);}
 .hbadge{background:rgba(192,57,43,.15);border:1.5px solid var(--r);color:var(--r);padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;}
 .hstars{color:var(--y);font-size:1rem;letter-spacing:2px;}
 .hh1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;color:var(--wh);line-height:1.08;margin-bottom:10px;}
-.hh1 em{font-style:italic;color:var(--r);font-family:'Playfair Display',serif;}
-.hscript{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2.5vw,1.5rem);color:rgba(255,255,255,.75);margin-bottom:28px;}
+.hh1 em{font-style:italic;color:var(--r);}
+.hscript{font-style:italic;font-size:clamp(1.1rem,2.5vw,1.5rem);color:rgba(255,255,255,.75);margin-bottom:28px;}
 .hdesc{color:rgba(255,255,255,.7);font-size:1rem;line-height:1.7;margin-bottom:36px;max-width:480px;}
 .hbtns{display:flex;gap:14px;flex-wrap:wrap;}
 .by{background:var(--r);color:var(--wh);font-weight:800;font-size:.95rem;padding:15px 34px;border-radius:50px;text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(192,57,43,.35);}
@@ -79,7 +79,7 @@ nav.scrolled .burger span{background:var(--dk);}
 section{padding:80px 48px;}
 .stag{display:inline-block;background:rgba(192,57,43,.08);color:var(--r);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px;}
 .stit{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--dk);text-wrap:balance;}
-.stit em{font-style:italic;color:var(--g);font-family:'Playfair Display',serif;}
+.stit em{font-style:italic;color:var(--g);}
 .sc{text-align:center;margin-bottom:48px;}
 
 /* BANNERS */
@@ -94,7 +94,7 @@ section{padding:80px 48px;}
 .bn1 .bne{color:var(--y);}
 .bn2 .bne{color:var(--g);}
 .bn3 .bne{color:rgba(255,255,255,.7);}
-.bnt{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:8px;}
+.bnt{font-size:clamp(1.5rem,3vw,2.4rem);font-weight:800;line-height:1.1;margin-bottom:8px;}
 .bn1 .bnt{color:var(--wh);}
 .bn2 .bnt{color:var(--gd);}
 .bn3 .bnt{color:var(--wh);}

@@ -10,7 +10,7 @@
 </section>
 
 <script is:inline>
-document.addEventListener('DOMContentLoaded', function() {
+(function() {
 const MOIS = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
 const now = new Date();
 const m = now.getMonth();
@@ -51,11 +51,11 @@ SAISON[m].forEach((p, i) => {
   const badgeClass = p.s === 'pl' ? 'sbl' : 'sbf';
   const badgeText = p.s === 'pl' ? 'Pleine saison' : 'Début saison';
   grid.innerHTML += `<div class="sc2 rv ${delays[i]}">
-    <div class="ssvg" style="font-size:2.8rem;display:flex;align-items:center;justify-content:center;height:100%;padding-top:4px;">${p.e}</div>
+    <div class="ssvg" style="font-size:2.4rem;">${p.e}</div>
     <div class="snn">${p.n}</div>
     <div class="sty">${p.t}</div>
     <span class="${badgeClass}">${badgeText}</span>
   </div>`;
 });
-}); // DOMContentLoaded
+})();
 </script>

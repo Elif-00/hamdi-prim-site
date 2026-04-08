@@ -16,38 +16,32 @@ const now = new Date();
 const m = now.getMonth();
 const annee = now.getFullYear();
 
+// L = Légume, F = Fruit | pl = Pleine saison, fi = Fin/Début saison
 const SAISON = [
   // Janvier
-  [{n:'Poireaux',t:'Légume',e:'🌿',s:'pl'},{n:'Carottes',t:'Légume',e:'🥕',s:'pl'},{n:'Endives',t:'Légume',e:'🥬',s:'pl'},{n:'Oranges',t:'Fruit',e:'🍊',s:'pl'},{n:'Poires',t:'Fruit',e:'🍐',s:'pl'},{n:'Champignons',t:'Légume',e:'🍄',s:'pl'}],
+  [{n:'Poireaux',t:'L',s:'pl'},{n:'Carottes',t:'L',s:'pl'},{n:'Endives',t:'L',s:'pl'},{n:'Oranges',t:'F',s:'pl'},{n:'Poires',t:'F',s:'pl'},{n:'Champignons',t:'L',s:'pl'}],
   // Février
-  [{n:'Endives',t:'Légume',e:'🥬',s:'pl'},{n:'Poireaux',t:'Légume',e:'🌿',s:'pl'},{n:'Chou-fleur',t:'Légume',e:'🥦',s:'pl'},{n:'Oranges',t:'Fruit',e:'🍊',s:'pl'},{n:'Poires',t:'Fruit',e:'🍐',s:'pl'},{n:'Champignons',t:'Légume',e:'🍄',s:'pl'}],
+  [{n:'Endives',t:'L',s:'pl'},{n:'Poireaux',t:'L',s:'pl'},{n:'Chou-fleur',t:'L',s:'pl'},{n:'Oranges',t:'F',s:'pl'},{n:'Poires',t:'F',s:'pl'},{n:'Champignons',t:'L',s:'pl'}],
   // Mars
-  [{n:'Épinards',t:'Légume',e:'🌿',s:'pl'},{n:'Carottes',t:'Légume',e:'🥕',s:'pl'},{n:'Radis',t:'Légume',e:'🌸',s:'pl'},{n:'Oranges',t:'Fruit',e:'🍊',s:'fi'},{n:'Pommes',t:'Fruit',e:'🍎',s:'fi'},{n:'Champignons',t:'Légume',e:'🍄',s:'pl'}],
+  [{n:'Épinards',t:'L',s:'pl'},{n:'Carottes',t:'L',s:'pl'},{n:'Radis',t:'L',s:'pl'},{n:'Oranges',t:'F',s:'fi'},{n:'Pommes',t:'F',s:'fi'},{n:'Champignons',t:'L',s:'pl'}],
   // Avril
-  [
-    {n:'Artichaut',t:'Légume',s:'pl',svg:`<svg viewBox="0 0 60 60"><ellipse cx="30" cy="44" rx="14" ry="9" fill="#558B2F"/><ellipse cx="30" cy="36" rx="12" ry="10" fill="#689F38"/><ellipse cx="30" cy="28" rx="10" ry="9" fill="#7CB342"/><ellipse cx="30" cy="21" rx="7" ry="7" fill="#8BC34A"/><rect x="27" y="8" width="6" height="13" rx="3" fill="#33691E"/><path d="M22 14 Q16 8 18 18" stroke="#4CAF50" stroke-width="2" fill="none"/><path d="M38 14 Q44 8 42 18" stroke="#4CAF50" stroke-width="2" fill="none"/></svg>`},
-    {n:'Épinards',t:'Légume',s:'pl',svg:`<svg viewBox="0 0 60 60"><path d="M30 52 C18 42 6 30 9 16 C12 4 24 3 30 10 C36 3 48 4 51 16 C54 30 42 42 30 52Z" fill="#4CAF50"/><path d="M30 52 L30 10" stroke="#2E7D32" stroke-width="1.5"/><path d="M30 35 L18 28" stroke="#2E7D32" stroke-width="1" opacity=".6"/><path d="M30 35 L42 28" stroke="#2E7D32" stroke-width="1" opacity=".6"/><path d="M30 25 L20 20" stroke="#2E7D32" stroke-width="1" opacity=".5"/><path d="M30 25 L40 20" stroke="#2E7D32" stroke-width="1" opacity=".5"/></svg>`},
-    {n:'Radis',t:'Légume',s:'pl',svg:`<svg viewBox="0 0 60 60"><circle cx="30" cy="36" r="17" fill="#E53935"/><circle cx="30" cy="36" r="17" fill="url(#rg)" opacity=".3"/><defs><radialGradient id="rg" cx="40%" cy="35%"><stop offset="0%" stop-color="white"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs><ellipse cx="30" cy="20" rx="9" ry="5" fill="#388E3C"/><rect x="28" y="8" width="4" height="12" rx="2" fill="#2E7D32"/><path d="M35 10 Q42 6 39 14" stroke="#388E3C" stroke-width="1.5" fill="none"/><line x1="30" y1="53" x2="30" y2="46" stroke="#C62828" stroke-width="2.5" stroke-linecap="round"/></svg>`},
-    {n:'Fenouil',t:'Légume',s:'pl',svg:`<svg viewBox="0 0 60 60"><ellipse cx="30" cy="46" rx="13" ry="8" fill="#E8F5E9"/><ellipse cx="30" cy="40" rx="11" ry="8" fill="#F1F8E9"/><path d="M21 38 Q14 22 10 8" stroke="#66BB6A" stroke-width="2" fill="none"/><path d="M26 36 Q24 20 24 8" stroke="#81C784" stroke-width="2" fill="none"/><path d="M34 36 Q36 20 36 8" stroke="#81C784" stroke-width="2" fill="none"/><path d="M39 38 Q46 22 50 8" stroke="#66BB6A" stroke-width="2" fill="none"/></svg>`},
-    {n:'Salades',t:'Légume',s:'pl',svg:`<svg viewBox="0 0 60 60"><ellipse cx="30" cy="38" rx="22" ry="14" fill="#C8E6C9"/><ellipse cx="30" cy="32" rx="18" ry="13" fill="#A5D6A7"/><ellipse cx="30" cy="26" rx="14" ry="11" fill="#81C784"/><ellipse cx="30" cy="21" rx="9" ry="8" fill="#66BB6A"/><ellipse cx="30" cy="17" rx="5" ry="5" fill="#4CAF50"/></svg>`},
-    {n:'Pommes',t:'Fruit',s:'pl',svg:''}
-  ],
+  [{n:'Artichaut',t:'L',s:'pl'},{n:'Épinards',t:'L',s:'pl'},{n:'Radis',t:'L',s:'pl'},{n:'Fenouil',t:'L',s:'pl'},{n:'Salades',t:'L',s:'pl'},{n:'Pommes',t:'F',s:'pl'}],
   // Mai
-  [{n:'Fraises',t:'Fruit',e:'🍓',s:'pl'},{n:'Asperges',t:'Légume',e:'🌿',s:'pl'},{n:'Concombres',t:'Légume',e:'🥒',s:'pl'},{n:'Courgettes',t:'Légume',e:'🥬',s:'pl'},{n:'Épinards',t:'Légume',e:'🌿',s:'pl'},{n:'Radis',t:'Légume',e:'🌸',s:'fi'}],
+  [{n:'Fraises',t:'F',s:'pl'},{n:'Asperges',t:'L',s:'pl'},{n:'Concombres',t:'L',s:'pl'},{n:'Courgettes',t:'L',s:'pl'},{n:'Épinards',t:'L',s:'pl'},{n:'Radis',t:'L',s:'fi'}],
   // Juin
-  [{n:'Cerises',t:'Fruit',e:'🍒',s:'pl'},{n:'Fraises',t:'Fruit',e:'🍓',s:'pl'},{n:'Abricots',t:'Fruit',e:'🍑',s:'pl'},{n:'Tomates',t:'Légume',e:'🍅',s:'pl'},{n:'Haricots verts',t:'Légume',e:'🌿',s:'pl'},{n:'Courgettes',t:'Légume',e:'🥒',s:'pl'}],
+  [{n:'Cerises',t:'F',s:'pl'},{n:'Fraises',t:'F',s:'pl'},{n:'Abricots',t:'F',s:'pl'},{n:'Tomates',t:'L',s:'pl'},{n:'Haricots verts',t:'L',s:'pl'},{n:'Courgettes',t:'L',s:'pl'}],
   // Juillet
-  [{n:'Tomates',t:'Légume',e:'🍅',s:'pl'},{n:'Pêches',t:'Fruit',e:'🍑',s:'pl'},{n:'Melons',t:'Fruit',e:'🍈',s:'pl'},{n:'Prunes',t:'Fruit',e:'🍇',s:'pl'},{n:'Pastèque',t:'Fruit',e:'🍉',s:'pl'},{n:'Abricots',t:'Fruit',e:'🟠',s:'pl'}],
+  [{n:'Tomates',t:'L',s:'pl'},{n:'Pêches',t:'F',s:'pl'},{n:'Melons',t:'F',s:'pl'},{n:'Prunes',t:'F',s:'pl'},{n:'Pastèque',t:'F',s:'pl'},{n:'Abricots',t:'F',s:'pl'}],
   // Août
-  [{n:'Melons',t:'Fruit',e:'🍈',s:'pl'},{n:'Pêches',t:'Fruit',e:'🍑',s:'pl'},{n:'Figues',t:'Fruit',e:'🟣',s:'pl'},{n:'Prunes',t:'Fruit',e:'🍇',s:'pl'},{n:'Pastèque',t:'Fruit',e:'🍉',s:'pl'},{n:'Poivrons',t:'Légume',e:'🫑',s:'pl'}],
+  [{n:'Melons',t:'F',s:'pl'},{n:'Pêches',t:'F',s:'pl'},{n:'Figues',t:'F',s:'pl'},{n:'Prunes',t:'F',s:'pl'},{n:'Pastèque',t:'F',s:'pl'},{n:'Poivrons',t:'L',s:'pl'}],
   // Septembre
-  [{n:'Raisins',t:'Fruit',e:'🍇',s:'pl'},{n:'Poires',t:'Fruit',e:'🍐',s:'pl'},{n:'Prunes',t:'Fruit',e:'🟣',s:'fi'},{n:'Champignons',t:'Légume',e:'🍄',s:'pl'},{n:'Poivrons',t:'Légume',e:'🫑',s:'fi'},{n:'Courges',t:'Légume',e:'🎃',s:'fi'}],
+  [{n:'Raisins',t:'F',s:'pl'},{n:'Poires',t:'F',s:'pl'},{n:'Prunes',t:'F',s:'fi'},{n:'Champignons',t:'L',s:'pl'},{n:'Poivrons',t:'L',s:'fi'},{n:'Courges',t:'L',s:'fi'}],
   // Octobre
-  [{n:'Pommes',t:'Fruit',e:'🍎',s:'pl'},{n:'Poires',t:'Fruit',e:'🍐',s:'pl'},{n:'Raisins',t:'Fruit',e:'🍇',s:'fi'},{n:'Potirons',t:'Légume',e:'🎃',s:'pl'},{n:'Champignons',t:'Légume',e:'🍄',s:'pl'},{n:'Châtaignes',t:'Fruit',e:'🌰',s:'pl'}],
+  [{n:'Pommes',t:'F',s:'pl'},{n:'Poires',t:'F',s:'pl'},{n:'Raisins',t:'F',s:'fi'},{n:'Potirons',t:'L',s:'pl'},{n:'Champignons',t:'L',s:'pl'},{n:'Châtaignes',t:'F',s:'pl'}],
   // Novembre
-  [{n:'Clémentines',t:'Fruit',e:'🍊',s:'pl'},{n:'Poireaux',t:'Légume',e:'🌿',s:'pl'},{n:'Carottes',t:'Légume',e:'🥕',s:'pl'},{n:'Choux',t:'Légume',e:'🥦',s:'pl'},{n:'Poires',t:'Fruit',e:'🍐',s:'pl'},{n:'Kiwis',t:'Fruit',e:'🥝',s:'pl'}],
+  [{n:'Clémentines',t:'F',s:'pl'},{n:'Poireaux',t:'L',s:'pl'},{n:'Carottes',t:'L',s:'pl'},{n:'Choux',t:'L',s:'pl'},{n:'Poires',t:'F',s:'pl'},{n:'Kiwis',t:'F',s:'pl'}],
   // Décembre
-  [{n:'Clémentines',t:'Fruit',e:'🍊',s:'pl'},{n:'Oranges',t:'Fruit',e:'🍊',s:'pl'},{n:'Endives',t:'Légume',e:'🥬',s:'pl'},{n:'Poireaux',t:'Légume',e:'🌿',s:'pl'},{n:'Choux',t:'Légume',e:'🥦',s:'pl'},{n:'Kiwis',t:'Fruit',e:'🥝',s:'pl'}],
+  [{n:'Clémentines',t:'F',s:'pl'},{n:'Oranges',t:'F',s:'pl'},{n:'Endives',t:'L',s:'pl'},{n:'Poireaux',t:'L',s:'pl'},{n:'Choux',t:'L',s:'pl'},{n:'Kiwis',t:'F',s:'pl'}],
 ];
 
 document.getElementById('saisonMois').textContent = MOIS[m] + ' ' + annee;
@@ -55,12 +49,14 @@ document.getElementById('saisonMois').textContent = MOIS[m] + ' ' + annee;
 const grid = document.getElementById('saisonGrid');
 const delays = ['','d1','d2','d3','d4','d5'];
 SAISON[m].forEach((p, i) => {
+  const isFruit = p.t === 'F';
+  const typeClass = isFruit ? 'fruit' : 'legume';
+  const typeLabel = isFruit ? 'Fruit' : 'Légume';
   const badgeClass = p.s === 'pl' ? 'sbl' : 'sbf';
   const badgeText = p.s === 'pl' ? 'Pleine saison' : 'Début saison';
-  const typeClass = p.t === 'Fruit' ? 'fruit' : 'legume';
   grid.innerHTML += `<div class="sc2 rv ${delays[i]} ${typeClass}">
     <div class="snn">${p.n}</div>
-    <div class="sty">${p.t}</div>
+    <div class="sty">${typeLabel}</div>
     <span class="${badgeClass}">${badgeText}</span>
   </div>`;
 });

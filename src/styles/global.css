@@ -11,7 +11,8 @@ body{font-family:'Poppins',sans-serif;background:var(--cr);color:var(--dk);overf
 img{max-width:100%;display:block;}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:linear-gradient(to bottom,rgba(0,0,0,0.45) 0%,transparent 100%);padding:22px 48px;display:flex;align-items:center;justify-content:flex-end;transition:all .4s;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:linear-gradient(to bottom,rgba(0,0,0,0.45) 0%,transparent 100%);padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:all .4s;}
+.nspacer{width:200px;flex-shrink:0;}
 nav.scrolled{background:var(--wh);box-shadow:0 2px 20px rgba(0,0,0,0.1);}
 .nlogo{display:flex;align-items:center;gap:12px;text-decoration:none;position:absolute;left:50%;transform:translateX(-50%);max-width:calc(100% - 120px);}
 .nico{width:56px;height:56px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:white;}
@@ -77,7 +78,7 @@ nav.scrolled .burger span{background:var(--dk);}
 /* SECTIONS COMMON */
 section{padding:80px 48px;}
 .stag{display:inline-block;background:rgba(192,57,43,.08);color:var(--r);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px;}
-.stit{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--dk);}
+.stit{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:900;color:var(--dk);text-wrap:balance;}
 .stit em{font-style:italic;color:var(--g);font-family:'Playfair Display',serif;}
 .sc{text-align:center;margin-bottom:48px;}
 
@@ -271,6 +272,7 @@ footer{background:var(--dk);color:white;padding:60px 48px 28px;position:relative
 .rv.vis{opacity:1;transform:translateY(0);}
 .d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}.d5{transition-delay:.5s;}
 
+
 /* RESPONSIVE */
 @media(max-width:1024px){
   .pgrid{grid-template-columns:repeat(3,1fr);}
@@ -290,6 +292,7 @@ footer{background:var(--dk);color:white;padding:60px 48px 28px;position:relative
   .nlinks.open{display:flex;flex-direction:column;position:fixed;inset:0;background:white;align-items:center;justify-content:center;gap:28px;z-index:999;}
   .nlinks.open a{font-size:1.2rem;color:var(--dk);}
   .burger{display:flex;}
+  .nspacer{display:none;}
   .hcw{grid-template-columns:1fr;padding:40px 20px 60px;}
   .hright{display:none;}
   section,#saison,#hor,footer{padding:60px 20px;}
@@ -318,4 +321,5 @@ footer{background:var(--dk);color:white;padding:60px 48px 28px;position:relative
   .ntag{display:none;}
   .avgrid{grid-template-columns:1fr;}
   .egrid{gap:32px;}
+  #hero .hbg{object-position:38% 55%;}
 }

@@ -72,8 +72,8 @@ nav.scrolled .burger span{background:var(--dk);}
 .si+.si::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);height:48px;width:1px;background:rgba(255,255,255,.25);}
 .si .sico{width:36px;height:36px;margin:0 auto 8px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.15);border-radius:50%;}
 .si .sico svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.si .sn{font-size:1.8rem;font-weight:900;color:var(--wh);line-height:1;margin-bottom:4px;}
-.si .sl{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.06em;}
+.si .sn{font-size:1.8rem;font-weight:500;color:var(--wh);line-height:1;margin-bottom:4px;}
+.si .sl{font-size:.72rem;font-weight:400;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.06em;}
 
 /* SECTIONS COMMON */
 section{padding:80px 48px;}
@@ -134,7 +134,7 @@ section{padding:80px 48px;}
 .pc:hover .pi{transform:scale(1.07);}
 .ptop{position:absolute;top:12px;left:12px;background:var(--gd);color:white;font-size:.72rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:50px;}
 .pb{padding:12px 14px 16px;}
-.pn{font-size:.92rem;font-weight:800;color:var(--dk);margin-bottom:5px;}
+.pn{font-size:.92rem;font-weight:500;color:var(--dk);margin-bottom:5px;}
 .pd{font-size:.84rem;color:#374151;line-height:1.45;font-weight:500;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 
 /* SAISON */
@@ -150,10 +150,10 @@ section{padding:80px 48px;}
 .sc2.legume::before{background:linear-gradient(90deg,#4CAF50,#8BC34A);}
 .sc2.fruit::before{background:linear-gradient(90deg,#FF8F00,#FFB300);}
 .sc2:hover{background:rgba(255,255,255,.13);transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.2);}
-.snn{font-size:1.25rem;font-weight:900;color:var(--wh);margin-bottom:6px;letter-spacing:-.01em;}
-.sty{font-size:.65rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
-.sbf{background:rgba(245,197,24,.25);color:var(--y);display:inline-block;padding:3px 10px;border-radius:50px;font-size:.63rem;font-weight:800;}
-.sbl{background:rgba(76,175,80,.25);color:#90EE90;display:inline-block;padding:3px 10px;border-radius:50px;font-size:.63rem;font-weight:800;}
+.snn{font-size:1.15rem;font-weight:500;color:var(--wh);margin-bottom:6px;letter-spacing:0;}
+.sty{font-size:.65rem;color:rgba(255,255,255,.75);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;}
+.sbf{background:var(--y);color:var(--dk);display:inline-block;padding:4px 12px;border-radius:50px;font-size:.63rem;font-weight:600;}
+.sbl{background:rgba(255,255,255,.9);color:var(--gd);display:inline-block;padding:4px 12px;border-radius:50px;font-size:.63rem;font-weight:600;}
 
 /* ENGAGEMENTS */
 #eng{background:var(--cr);}

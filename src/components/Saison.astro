@@ -24,7 +24,7 @@ const SAISON = [
   // Mars
   [{n:'Épinards',t:'Légume',e:'🌿',s:'pl'},{n:'Carottes',t:'Légume',e:'🥕',s:'pl'},{n:'Radis',t:'Légume',e:'🌸',s:'pl'},{n:'Oranges',t:'Fruit',e:'🍊',s:'fi'},{n:'Pommes',t:'Fruit',e:'🍎',s:'fi'},{n:'Champignons',t:'Légume',e:'🍄',s:'pl'}],
   // Avril
-  [{n:'Artichaut',t:'Légume',e:'🌿',s:'pl'},{n:'Épinards',t:'Légume',e:'🥬',s:'pl'},{n:'Radis',t:'Légume',e:'🌸',s:'pl'},{n:'Fenouil',t:'Légume',e:'🌿',s:'pl'},{n:'Salades',t:'Légume',e:'🥗',s:'pl'},{n:'Champignons',t:'Légume',e:'🍄',s:'pl'}],
+  [{n:'Artichaut',t:'Légume',i:'sVXHGvi5RQ0',s:'pl'},{n:'Épinards',t:'Légume',i:'XFBjMMXl3Ao',s:'pl'},{n:'Radis',t:'Légume',i:'qfNXS8d_PCs',s:'pl'},{n:'Fenouil',t:'Légume',i:'4RR1tz5KPus',s:'pl'},{n:'Salades',t:'Légume',i:'DOW5bMQ4EKA',s:'pl'},{n:'Champignons',t:'Légume',i:'NSmxU1DcRD0',s:'pl'}],
   // Mai
   [{n:'Fraises',t:'Fruit',e:'🍓',s:'pl'},{n:'Asperges',t:'Légume',e:'🌿',s:'pl'},{n:'Concombres',t:'Légume',e:'🥒',s:'pl'},{n:'Courgettes',t:'Légume',e:'🥬',s:'pl'},{n:'Épinards',t:'Légume',e:'🌿',s:'pl'},{n:'Radis',t:'Légume',e:'🌸',s:'fi'}],
   // Juin
@@ -50,8 +50,11 @@ const delays = ['','d1','d2','d3','d4','d5'];
 SAISON[m].forEach((p, i) => {
   const badgeClass = p.s === 'pl' ? 'sbl' : 'sbf';
   const badgeText = p.s === 'pl' ? 'Pleine saison' : 'Début saison';
+  const media = p.i
+    ? `<div class="siw"><img src="https://images.unsplash.com/photo-${p.i}?auto=format&fit=crop&w=200&q=80" alt="${p.n}"/></div>`
+    : `<div class="ssvg" style="font-size:2.4rem;">${p.e}</div>`;
   grid.innerHTML += `<div class="sc2 rv ${delays[i]}">
-    <div class="ssvg" style="font-size:2.4rem;">${p.e}</div>
+    ${media}
     <div class="snn">${p.n}</div>
     <div class="sty">${p.t}</div>
     <span class="${badgeClass}">${badgeText}</span>

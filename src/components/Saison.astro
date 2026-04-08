@@ -57,11 +57,7 @@ const delays = ['','d1','d2','d3','d4','d5'];
 SAISON[m].forEach((p, i) => {
   const badgeClass = p.s === 'pl' ? 'sbl' : 'sbf';
   const badgeText = p.s === 'pl' ? 'Pleine saison' : 'Début saison';
-  const media = p.svg
-    ? `<div class="ssvg">${p.svg}</div>`
-    : `<div class="ssvg" style="font-size:2.4rem;">${p.e}</div>`;
   grid.innerHTML += `<div class="sc2 rv ${delays[i]}">
-    ${media}
     <div class="snn">${p.n}</div>
     <div class="sty">${p.t}</div>
     <span class="${badgeClass}">${badgeText}</span>

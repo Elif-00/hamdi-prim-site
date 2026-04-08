@@ -152,7 +152,7 @@ section{padding:80px 48px;}
 .siw img{width:100%;height:100%;object-fit:cover;}
 .ssvg{width:70px;height:70px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.15);}
 .ssvg svg{width:42px;height:42px;}
-.snn{font-size:.85rem;font-weight:800;color:var(--wh);margin-bottom:3px;}
+.snn{font-size:1.1rem;font-weight:800;color:var(--wh);margin-bottom:6px;}
 .sty{font-size:.65rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.06em;margin-bottom:7px;}
 .sbf{background:rgba(245,197,24,.25);color:var(--y);display:inline-block;padding:3px 10px;border-radius:50px;font-size:.63rem;font-weight:800;}
 .sbl{background:rgba(76,175,80,.25);color:#90EE90;display:inline-block;padding:3px 10px;border-radius:50px;font-size:.63rem;font-weight:800;}

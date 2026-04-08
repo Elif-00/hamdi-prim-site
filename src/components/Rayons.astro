@@ -1,0 +1,78 @@
+---
+---
+<section id="rayons">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;">
+    <div class="sc rv"><span class="stag">En boutique</span><h2 class="stit rv d1">Nos <em>rayons</em></h2></div>
+  </div>
+
+  <div class="rcar-wrap rv d2">
+    <button class="rcar-btn rcar-prev" onclick="rcarPrev()" aria-label="Précédent">&#8592;</button>
+    <div class="rcar-track" id="rcarTrack">
+      <div class="rcar-slide"><img src="/images/photo_2_2026-04-08_13-54-04.jpg" alt="Poivrons colorés"/></div>
+      <div class="rcar-slide"><img src="/images/photo_3_2026-04-08_13-54-04.jpg" alt="Tomates variées"/></div>
+      <div class="rcar-slide"><img src="/images/photo_1_2026-04-08_13-54-04.jpg" alt="Légumes frais"/></div>
+      <div class="rcar-slide"><img src="/images/photo_12_2026-04-08_13-54-04.jpg" alt="Courgettes et aubergines"/></div>
+      <div class="rcar-slide"><img src="/images/photo_13_2026-04-08_13-54-04.jpg" alt="Rayon salades"/></div>
+      <div class="rcar-slide"><img src="/images/photo_64_2026-04-08_13-54-04.jpg" alt="Pyramide d'oranges"/></div>
+      <div class="rcar-slide"><img src="/images/photo_57_2026-04-08_13-54-04.jpg" alt="Oranges en vrac"/></div>
+      <div class="rcar-slide"><img src="/images/photo_14_2026-04-08_13-54-04.jpg" alt="Rayon pommes"/></div>
+      <div class="rcar-slide"><img src="/images/photo_4_2026-04-08_13-54-04.jpg" alt="Oignons"/></div>
+      <div class="rcar-slide"><img src="/images/photo_38_2026-04-08_13-54-04.jpg" alt="Étalage fruits secs"/></div>
+      <div class="rcar-slide"><img src="/images/photo_11_2026-04-08_13-54-04.jpg" alt="Rayon fruits secs emballés"/></div>
+      <div class="rcar-slide"><img src="/images/photo_9_2026-04-08_13-54-04.jpg" alt="Rayon légumes secs"/></div>
+    </div>
+    <button class="rcar-btn rcar-next" onclick="rcarNext()" aria-label="Suivant">&#8594;</button>
+  </div>
+
+  <div class="rcar-dots" id="rcarDots"></div>
+</section>
+
+<script is:inline>
+(function(){
+  const track = document.getElementById('rcarTrack');
+  const slides = track.querySelectorAll('.rcar-slide');
+  const dotsEl = document.getElementById('rcarDots');
+  let cur = 0;
+  const total = slides.length;
+
+  // Build dots
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'rcar-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  });
+
+  function getVisible(){
+    const w = track.parentElement.offsetWidth;
+    if(w < 600) return 1;
+    if(w < 900) return 2;
+    return 3;
+  }
+
+  function goTo(n){
+    const vis = getVisible();
+    const max = total - vis;
+    cur = Math.max(0, Math.min(n, max));
+    const slideW = track.querySelector('.rcar-slide').offsetWidth + 20; // gap
+    track.style.transform = 'translateX(-' + (cur * slideW) + 'px)';
+    dotsEl.querySelectorAll('.rcar-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+  }
+
+  window.rcarPrev = function(){ goTo(cur - 1); };
+  window.rcarNext = function(){ goTo(cur + 1); };
+
+  window.addEventListener('resize', () => goTo(cur));
+
+  // Swipe support
+  let sx = null;
+  track.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', e => {
+    if(sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 40){ dx < 0 ? rcarNext() : rcarPrev(); }
+    sx = null;
+  });
+})();
+</script>
